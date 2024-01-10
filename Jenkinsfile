@@ -3,10 +3,13 @@ pipeline {
         node('slave-node') 
     }
 
+environment {
+    PATH= "/opt/apache-maven-3.8.8/bin:$PATH" 
+}
     stages {
-        stage('git-clone') {
+        stage('build') {
             steps {
-                git branch: 'main', url: 'https://github.com/niyazahmad987/tweet-trend-new.git'
+                sh 'mvn clean deploy'
             }
         }
     }
