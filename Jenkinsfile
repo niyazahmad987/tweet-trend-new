@@ -15,10 +15,10 @@ environment {
         
     stage('SonarQube analysis') {
     environment {
-      scannerHome = tool 'sonar-scanner' 
+      scannerHome = tool 'valaxy-sonar-scanner' 
     }
     steps {
-    withSonarQubeEnv('sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+    withSonarQubeEnv('valaxy-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
       sh "${scannerHome}/bin/sonar-scanner"
     }
     }
